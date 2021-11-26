@@ -18,10 +18,19 @@ app.use(cors())
 //?db config
 
 const connection_url=`mongodb+srv://admin:aryan@cluster0.hr0np.mongodb.net/instaDB?retryWrites=true&w=majority`
-
+mongoose.connect(connection_url );
+mongoose.connection.once('open',()=>{
+    console.log("DB connected")
+})
 
 
 //?api routes
 app.get('/',(req,res)=>res.status(200).send("hello there!!"))
+
+app.post('/upload',(req,res)=>{
+    
+})
+
+
 //? listners 
 app.listen(port,()=>console.log(`listening on localhost:${port}`))
